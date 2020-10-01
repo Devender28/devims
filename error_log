@@ -1,0 +1,14 @@
+[19-Sep-2020 05:21:21 UTC] PHP Fatal error:  Call to a member function compareCount() on null in /home/varalakshmi/public_html/client/ims_dev/application/views/front/includes/menu.php on line 96
+[19-Sep-2020 05:21:30 UTC] PHP Fatal error:  Call to a member function compareCount() on null in /home/varalakshmi/public_html/client/ims_dev/application/views/front/includes/menu.php on line 96
+[19-Sep-2020 05:22:00 UTC] PHP Fatal error:  Call to a member function compareCount() on null in /home/varalakshmi/public_html/client/ims_dev/application/views/front/includes/menu.php on line 96
+[19-Sep-2020 05:22:47 UTC] PHP Fatal error:  Call to a member function compareCount() on null in /home/varalakshmi/public_html/client/ims_dev/application/views/front/includes/menu.php on line 96
+[19-Sep-2020 05:22:59 UTC] PHP Fatal error:  Call to a member function compareCount() on null in /home/varalakshmi/public_html/client/ims_dev/application/views/front/includes/menu.php on line 96
+[19-Sep-2020 05:23:05 UTC] PHP Fatal error:  Call to a member function compareCount() on null in /home/varalakshmi/public_html/client/ims_dev/application/views/front/includes/menu.php on line 96
+[19-Sep-2020 06:41:50 UTC] PHP Fatal error:  Call to a member function compareCount() on null in /home/varalakshmi/public_html/client/ims_dev/application/views/front/includes/menu.php on line 96
+[22-Sep-2020 08:22:42 UTC] PHP Fatal error:  Call to a member function encode() on null in /home/varalakshmi/public_html/client/ims_dev/application/views/admin/blogpages/all_categories.php on line 120
+[22-Sep-2020 10:47:48 UTC] PHP Fatal error:  Call to a member function compareCount() on null in /home/varalakshmi/public_html/client/ims_dev/application/views/front/includes/menu.php on line 96
+[22-Sep-2020 10:47:54 UTC] PHP Fatal error:  Call to a member function compareCount() on null in /home/varalakshmi/public_html/client/ims_dev/application/views/front/includes/menu.php on line 96
+[22-Sep-2020 12:47:23 UTC] PHP Fatal error:  Call to a member function allSpecialOffers() on null in /home/varalakshmi/public_html/client/ims_dev/application/controllers/front/Front.php on line 26
+[28-Sep-2020 06:22:34 UTC] PHP Fatal error:  Call to undefined method Usermodel::addQuery() in /home/varalakshmi/public_html/client/ims_dev/application/controllers/front/User.php on line 68
+[28-Sep-2020 10:15:50 UTC] PHP Fatal error:  Call to a member function compareCount() on null in /home/varalakshmi/public_html/client/ims_dev/application/views/front/includes/menu.php on line 96
+[01-Oct-2020 05:27:06 UTC] PHP Fatal error:  Call to a member function compareCount() on null in /home/varalakshmi/public_html/client/ims_dev/application/views/front/includes/menu.php on line 96
