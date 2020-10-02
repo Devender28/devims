@@ -10,7 +10,7 @@ class Register extends CI_Controller {
 
 		$this->load->library('form_validation');
         
-		$this->load->model(array('front/registermodel','front/loginmodel','front/vendorloginmodel','front/vendorregistermodel'));
+		$this->load->model(array('front/registermodel','front/loginmodel'));
 	}
 
 
@@ -21,7 +21,7 @@ class Register extends CI_Controller {
 		$verification_key = $this->uri->segment(3);
 		if($this->registermodel->verify_email($verification_key))
 		{
-		
+		//	$data['msg'] = '<h1 align="center">Your Email has been successfully verified, now you can login from <a href="'.base_url().'login">here</a></h1>';
 		$data['msg'] = '<h1 align="center">Your Email has been successfully verified</h1>';
 		}
 		else
@@ -55,36 +55,7 @@ class Register extends CI_Controller {
 			$this->registermodel->register();
 		}
 
-		public function vensendotp()
-		
-		{
-			$this->vendorloginmodel->send_otp();
-		}
 
-
-
-		function verify_emailven()
-		{
-		if($this->uri->segment(3))
-		{
-		$verification_key = $this->uri->segment(3);
-		if($this->vendorregistermodel->verify_email($verification_key))
-		{
-		
-		$data['msg'] = '<h1 align="center">Your Email has been successfully verified</h1>';
-		}
-		else
-		{
-			$data['msg'] = '<h1 align="center">Invalid Link</h1>';
-			}
-			$this->load->model('front/productmodel');
-				$this->load->view(FRONT_INCLUDES.'header');
-				$this->load->view(FRONT_INCLUDES.'menu'); 
-					$this->load->view(FRONT_PAGES.'email_verification', $data);
-					$this->load->view(FRONT_INCLUDES.'footer');
-				
-		}
-		}
 		
 
 	

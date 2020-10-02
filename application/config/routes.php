@@ -60,6 +60,9 @@ $route['user/(:any)'] = 'front/user/$1';
 $route['register/(:any)'] = 'front/register/$1';
 $route['userregister'] = 'front/register/register_user';
 
+$route['emailven/verify/(:any)'] = 'front/register/verify_emailven/$1';
+$route['vendor/(:any)'] = 'front/vendor/$1';
+
 $route['product_view/(:any)'] = 'front/front/product_view/$1';
 $route['product_view/(:any)/(:any)'] = 'front/front/product_view/$1/$1';
 

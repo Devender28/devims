@@ -10,7 +10,7 @@ class Front extends CI_Controller {
 
 		$this->load->library('form_validation');
         
-		$this->load->model(array('front/registermodel','front/loginmodel','front/productmodel','admin/categorymodel','front/specialoffermodel'));
+		$this->load->model(array('front/registermodel','front/loginmodel','front/productmodel','admin/categorymodel','front/specialoffermodel','front/vendorregistermodel','front/vendorloginmodel'));
 		
 	}
 
@@ -328,6 +328,26 @@ public function delete()
 		
         
     
+	}
+
+
+
+	public function vendor()
+			{
+				$data['msg']=$this->vendorregistermodel->register();
+				$this->load->view(FRONT_INCLUDES.'header');
+				$this->load->view(FRONT_INCLUDES.'menu'); 
+				$this->load->view(FRONT_PAGES.'ven_register',$data);
+				$this->load->view(FRONT_INCLUDES.'footer');
+			}
+
+	public function vendor_login()
+	{
+		$data['msg']=$this->vendorloginmodel->login();
+		$this->load->view(FRONT_INCLUDES.'header');
+		$this->load->view(FRONT_INCLUDES.'menu'); 
+		$this->load->view(FRONT_PAGES.'login',$data);
+		$this->load->view(FRONT_INCLUDES.'footer');
 	}
 	
 	

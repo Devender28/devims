@@ -33,7 +33,7 @@ function do_upload($a,$b,$c)
 
                  	$CI =& get_instance();
                             $config['upload_path'] = APPPATH.'../uploads/'.$a;
-                            $config['allowed_types'] = 'gif|jpg|png|pdf|zip';
+                            $config['allowed_types'] = 'gif|jpg|png|pdf|zip|xlsx|txt';
                             $config['file_name'] = $b;
                             $config['overwrite'] = TRUE;
 

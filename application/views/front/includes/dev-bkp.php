@@ -89,24 +89,4 @@ function register()
 
 
 
-function ven_sendOTP() { 
-    var input = $("#venemail").val();
-    
-        var data = {
-            "email" : input,
-            "action" : "send_otp"
-        }; 
-        $.ajax({
-            url : '<?php echo base_url("register/vensendotp");?>',            
-            type : 'POST',
-            data : data, 
-            success : function(response) { 
-                $("#deven").html(response);
-            }
-            
-        });
-    
-}
-
-
 </script>
