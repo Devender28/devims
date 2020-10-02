@@ -79,20 +79,20 @@ $db['default'] = array(
 	
        
   
-    
+ /*   
 'username' => 'imsele',
 'password' => 'gy@Gxkk{b}Ov',
 	
 	'database' => 'ims_dev',
-
-
-
-/*
-'username' => 'vone',
-'password' => 'gy@Gxkk{b}Ov',
-	
-'database' => 'vone',
 */
+
+
+
+'username' => 'root',
+'password' => '',
+	
+'database' => 'ims_dev6',
+
 
 
 

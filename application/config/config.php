@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 
-$config['base_url'] = 'http://elefontdesign.in/client/ims_dev';
+$config['base_url'] = 'http://localhost/dev/ims_live';
 
 /*
 |--------------------------------------------------------------------------
