@@ -6,10 +6,15 @@
                 <div class="col-sm-12">
                     <ul class="mb0">
 
-                       <?php if($this->session->userdata('id')) { ?>
+                       <?php if($this->session->userdata('id') && $this->session->userdata('type')=='user') { ?>
 
                                  <li class="list-inline-item list_s"><a href="<?php echo base_url('user/dashboard');?>" 
                         > <span class="dn-lg">My Dashboard</span></a></li>
+
+						<?php } elseif($this->session->userdata('id') && $this->session->userdata('type')=='vendor') { ?>
+
+<li class="list-inline-item list_s"><a href="<?php echo base_url('vendor/dashboard');?>" 
+> <span class="dn-lg">My Dashboard</span></a></li>
                     <?php } else { ?>
 
                         <li class="list-inline-item">

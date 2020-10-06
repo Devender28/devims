@@ -72,6 +72,7 @@ class Loginmodel extends MY_Model {
 									if($password == $store_password || @$otp_data->otp == $password && @$otp_data->is_expired == '0')
 										{
 											$this->session->set_userdata('id', $row->id);
+											$this->session->set_userdata('type', 'user');
 											$this->update('login_otp',array('is_expired'=>'1'),'user_id',$row->id);
 											$this->add_wishlist();
 											$this->add_cart();

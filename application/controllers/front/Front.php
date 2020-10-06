@@ -332,7 +332,7 @@ public function delete()
 
 
 
-	public function vendor()
+	public function vendor_register()
 			{
 				$data['msg']=$this->vendorregistermodel->register();
 				$this->load->view(FRONT_INCLUDES.'header');
