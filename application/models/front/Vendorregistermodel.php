@@ -31,12 +31,16 @@ class Vendorregistermodel extends CI_Model {
 				$verification_key = md5(rand());
 				$encrypted_password = $this->encryption->encrypt($this->input->post('password'));
 				
+		
+           $type=implode(', ', $this->input->post($type));
+			
+				
 				$data = array(
 					'name'  => $this->input->post('name'),
 					'email'  => $this->input->post('email'),
 					'password' => $encrypted_password,
 					'mobile' => $this->input->post('mobile'),
-					// 'privacy_policy' => 1,
+					'type' => $type,
 					'status' => 1,
 					//'image' => $this->input->post('name').".jpg",
 					'verification_key' => $verification_key
