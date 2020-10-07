@@ -30,26 +30,50 @@ function profile_update()
         	{
 				
 				extract($_POST);
+
+				//print_r($_POST); exit;
 				
 				if($_FILES['profile_image']['name'])
 					{
-						$filename = $name."_pic".".".pathinfo($_FILES["profile_image"]["name"], PATHINFO_EXTENSION);
+						$filename = rand()."_pic".".".pathinfo($_FILES["profile_image"]["name"], PATHINFO_EXTENSION);
 						
 					} else {
 						$filename = $old_profile_image;
 					}
-		  
-					$data = array('name'    => $name,
-												'email'   => $email,
-												'mobile'  => $mobile,
-												'image'   => $filename,
-												'address' => $address
-															);
 
-            if($this->db->update('registrations',$data, array('id' => $this->session->userdata('id'))))
+					if($_FILES['certificate']['name'])
+					{
+						$cert = "cert".rand()."_pic".".".pathinfo($_FILES["certificate"]["name"], PATHINFO_EXTENSION);
+						
+					} else {
+						$cert = $old_certificate;
+					}
+		  
+					$data = array(  'name'    => $name,
+									'email'   => $email,
+									'mobile'  => $mobile,
+									'image'   => $filename,
+									'company'    => $company,
+									'description'   => $description,
+									'state'  => $state,
+									'city'   => $city,
+									'zip'    => $zip,
+									'experience'   => $experience,
+									'practicing_since'  => $practicing_since,
+									'projects_delivered'   => $projects_delivered,
+									'team_size'    => $team_size,
+									'facebook_link'   => $facebook_link,
+									'twitter_link'  => $twitter_link,
+									'linkedin_link'   => $linkedin_link,
+									'instagram_link'   => $instagram_link,
+									'license_no'  => $license_no,
+									'certificate'   => $cert
+												);
+
+            if($this->db->update('vendors',$data, array('id' => $this->session->userdata('id'))))
             {
-            	do_upload('user',$filename,'profile_image');
-							
+            	do_upload('vendor',$filename,'profile_image');
+				do_upload('vendor',$cert,'certificate');			
 							
 
             	return $msg = '<div class="alert alert-success col-md-12">

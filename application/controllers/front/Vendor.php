@@ -10,10 +10,10 @@ class Vendor extends CI_Controller {
 
 		define('LEVEL2', $this->uri->segment(2));
 
-		// $this->load->model('front/usermodel');
-		$this->load->model(array('front/usermodel','front/productmodel'));
+		// $this->load->model('front/vendormodel');
+		$this->load->model(array('front/vendormodel','front/productmodel'));
 
-		 if(!$this->session->userdata('id'))
+		 if($this->session->userdata('type') !='vendor')
 			  {
 			   redirect('',auto);
 			  }
@@ -34,7 +34,7 @@ class Vendor extends CI_Controller {
 
 	public function dashboard()
 	{
-		$data['user'] = $this->usermodel->get_user($this->session->userdata('id'));
+		$data['user'] = $this->vendormodel->get_user($this->session->userdata('id'));
 		$this->load->view(FRONT_INCLUDES.'header');
 		$this->load->view(FRONT_INCLUDES.'menu'); 
         $this->load->view(FRONT_INCLUDES.'dashboard_vendor_menu',$data); 
@@ -44,29 +44,31 @@ class Vendor extends CI_Controller {
 
 	public function profile()
 	{
-		$data['user'] = $this->usermodel->get_user($this->session->userdata('id'));
+		$data['user'] = $this->vendormodel->get_user($this->session->userdata('id'));
 		
 		$this->load->view(FRONT_INCLUDES.'header');
-        $this->load->view(FRONT_INCLUDES.'dashboard_menu',$data); 
-		$this->load->view(FRONT_PAGES.'profile',$data);
+		$this->load->view(FRONT_INCLUDES.'menu'); 
+        $this->load->view(FRONT_INCLUDES.'dashboard_vendor_menu',$data); 
+		$this->load->view(FRONT_PAGES.'vendor_profile',$data);
 		$this->load->view(FRONT_INCLUDES.'dashboard_footer');
 	}
 
 	public function profile_update()
 	{
-		$data['user'] = $this->usermodel->get_user($this->session->userdata('id'));
-		$data['msg'] = $this->usermodel->profile_update();
-		$data['pass_msg'] = $this->usermodel->password_change();
+		$data['user'] = $this->vendormodel->get_user($this->session->userdata('id'));
+		$data['msg'] = $this->vendormodel->profile_update();
+		$data['pass_msg'] = $this->vendormodel->password_change();
 
 		$this->load->view(FRONT_INCLUDES.'header');
-        $this->load->view(FRONT_INCLUDES.'dashboard_menu',$data); 
-		$this->load->view(FRONT_PAGES.'profile-update', $data);
+		$this->load->view(FRONT_INCLUDES.'menu'); 
+        $this->load->view(FRONT_INCLUDES.'dashboard_vendor_menu',$data); 
+		$this->load->view(FRONT_PAGES.'vendor_profile_update', $data);
 		$this->load->view(FRONT_INCLUDES.'dashboard_footer');
 	}
 
 	public function message()
 	{
-		$data['user'] = $this->usermodel->get_user($this->session->userdata('id'));
+		$data['user'] = $this->vendormodel->get_user($this->session->userdata('id'));
 		$this->load->view(FRONT_INCLUDES.'header');
         $this->load->view(FRONT_INCLUDES.'dashboard_menu',$data); 
 		$this->load->view(FRONT_PAGES.'message');
@@ -77,8 +79,8 @@ class Vendor extends CI_Controller {
 
 	public function orders()
 	{
-		$data['user'] = $this->usermodel->get_user($this->session->userdata('id'));
-		$data['orders'] = $this->usermodel->get_data('orders','user_id',$this->session->userdata('id'));
+		$data['user'] = $this->vendormodel->get_user($this->session->userdata('id'));
+		$data['orders'] = $this->vendormodel->get_data('orders','user_id',$this->session->userdata('id'));
 		$this->load->view(FRONT_INCLUDES.'header');
         $this->load->view(FRONT_INCLUDES.'dashboard_menu',$data); 
 		$this->load->view(FRONT_PAGES.'orders', $data);
@@ -88,8 +90,8 @@ class Vendor extends CI_Controller {
 
 	public function order()
 	{
-		$data['user'] = $this->usermodel->get_user($this->session->userdata('id'));
-		$data['items'] = $this->usermodel->get_data('order_details','order_id',$this->uri->segment(3));
+		$data['user'] = $this->vendormodel->get_user($this->session->userdata('id'));
+		$data['items'] = $this->vendormodel->get_data('order_details','order_id',$this->uri->segment(3));
 		$this->load->view(FRONT_INCLUDES.'header');
         $this->load->view(FRONT_INCLUDES.'dashboard_menu',$data); 
 		$this->load->view(FRONT_PAGES.'properties', $data);
@@ -101,8 +103,8 @@ class Vendor extends CI_Controller {
 	{
 		
 		$data['Table'] = 'cart';
-		$data['user'] = $this->usermodel->get_user($this->session->userdata('id'));
-		$data['cart'] = $this->usermodel->get_data('cart','user_id',$this->session->userdata('id'));
+		$data['user'] = $this->vendormodel->get_user($this->session->userdata('id'));
+		$data['cart'] = $this->vendormodel->get_data('cart','user_id',$this->session->userdata('id'));
 		$this->load->view(FRONT_INCLUDES.'header');
         $this->load->view(FRONT_INCLUDES.'dashboard_menu',$data); 
 		$this->load->view(FRONT_PAGES.'my_cart', $data);
@@ -113,8 +115,8 @@ class Vendor extends CI_Controller {
 	{
 		
 		$data['Table'] = 'wishlist';
-		$data['user'] = $this->usermodel->get_user($this->session->userdata('id'));
-		$data['wishlist'] = $this->usermodel->get_data('wishlist','user_id',$this->session->userdata('id'));
+		$data['user'] = $this->vendormodel->get_user($this->session->userdata('id'));
+		$data['wishlist'] = $this->vendormodel->get_data('wishlist','user_id',$this->session->userdata('id'));
 		$this->load->view(FRONT_INCLUDES.'header');
         $this->load->view(FRONT_INCLUDES.'dashboard_menu', $data); 
 		$this->load->view(FRONT_PAGES.'wishlist',$data);
