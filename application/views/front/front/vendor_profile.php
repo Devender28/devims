@@ -14,11 +14,11 @@
                     <div class="col-lg-12">
                         <div class="feat_property list agency">
                             <div class="thumb">
-                                <img class="" src="images/team/upload_photo2.jpg" alt="1.jpg">
+                                <img class="" src="<?php echo base_url('uploads/vendor/'.$user->image);?>" alt="1.jpg">
                             </div>
                             <div class="details">
                                 <div class="tc_content">
-                                    <h4>Country House Architects</h4>
+                                    <h4><?php echo $user->company;?></h4>
                                     <p class="text-thm">Residential Architect</p>
                                     <ul class="prop_details mb0">
                                         <li><ul class="Rating mb0">
@@ -29,8 +29,8 @@
                                             <li class="list-inline-item"><i class="fa fa-star"></i></li>
                                         </ul></li>
                                         <li><a href="javascript: void()">Office: 134 456 3210</a></li>
-                                        <li><a href="javascript: void()">Mobile: 891 456 9874</a></li>
-                                        <li><a href="javascript: void()">Email: pakulla@ims.com</a></li>
+                                        <li><a href="javascript: void()">Mobile: <?php echo $user->mobile;?></a></li>
+                                        <li><a href="javascript: void()">Email: <?php echo $user->email;?></a></li>
                                     </ul>
                                 </div>
                                 <div class="fp_footer">

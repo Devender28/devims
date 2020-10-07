@@ -109,7 +109,7 @@ function profile_update()
 
 					 $encpass = $this->encryption->encrypt($old_pass);
 
-					 $chk=$this->db->get_where('registrations',array('id'=> $this->session->userdata('id')))->row();
+					 $chk=$this->db->get_where('vendors',array('id'=> $this->session->userdata('id')))->row();
 					 $store_password = $this->encryption->decrypt($chk->password);
 					 if($old_pass != $store_password){
 
@@ -129,7 +129,7 @@ function profile_update()
 		 
 						 $data = array('password' => $new_encpass);
 		 
-						 if($this->db->update('registrations',$data,array('id'=>$this->session->userdata('id')))) {
+						 if($this->db->update('vendors',$data,array('id'=>$this->session->userdata('id')))) {
 		 
 							//$smsmessage="your password has been changed successfully,New password:-".$npd;
 							//$this->sendSMS($this->session->userdata('id'),$smsmessage); 
