@@ -142,6 +142,17 @@ function profile_update()
 		 
 				 }
 				}
+
+
+
+				function preference_update()
+				{
+					if(isset($_POST['update_prefference']))
+					{
+						extract($_POST);
+						print_r($_POST); exit;
+					}
+				}
 	
 	
 	

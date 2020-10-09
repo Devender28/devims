@@ -66,12 +66,14 @@ class Vendor extends CI_Controller {
 		$this->load->view(FRONT_INCLUDES.'dashboard_footer');
 	}
 
-	public function message()
+	public function lead_preference()
 	{
 		$data['user'] = $this->vendormodel->get_user($this->session->userdata('id'));
+		$data['msg'] = $this->vendormodel->preference_update();
 		$this->load->view(FRONT_INCLUDES.'header');
-        $this->load->view(FRONT_INCLUDES.'dashboard_menu',$data); 
-		$this->load->view(FRONT_PAGES.'message');
+		$this->load->view(FRONT_INCLUDES.'menu');
+        $this->load->view(FRONT_INCLUDES.'dashboard_vendor_menu',$data); 
+		$this->load->view(FRONT_PAGES.'lead_preference');
 		$this->load->view(FRONT_INCLUDES.'dashboard_footer');
 	}
 
