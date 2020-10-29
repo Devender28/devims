@@ -34,7 +34,10 @@ class Vendor extends CI_Controller {
 
 	public function dashboard()
 	{
+		$data['msg'] = $this->vendormodel->thankyounote();
 		$data['user'] = $this->vendormodel->get_user($this->session->userdata('id'));
+		$data['vendors'] = $this->vendormodel->get_fields_data($this->session->userdata('id'));
+
 		$this->load->view(FRONT_INCLUDES.'header');
 		$this->load->view(FRONT_INCLUDES.'menu'); 
         $this->load->view(FRONT_INCLUDES.'dashboard_vendor_menu',$data); 

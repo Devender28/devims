@@ -20,6 +20,19 @@ public function get_user($id)
   return $this->db->get_where('vendors',array('id'=>$id))->row();
 }
 
+public function get_fields_data($id)
+{
+	$this->db->select('name,id');
+	$this->db->where('id !=', $id);
+	$q = $this->db->get('vendors');
+
+	if($q->num_rows() > 0)
+	{
+		return $q->result();
+	}
+	return array();
+}
+
 
 
 function profile_update()
@@ -156,7 +169,35 @@ function profile_update()
 	
 	
 	
-	
+	function thankyounote()
+	{
+		if(isset($_POST['add_thanku']))
+		{
+			extract($_POST);
+
+			$data = array(  'submit_by'    => $this->session->userdata('id'),
+							'submit_to'   => $vendor,
+							'amount'  => $amount
+												);
+
+			  if($this->db->insert('thankyou_note',$data))
+            {
+            	
+
+            	return $msg = '<div class="alert alert-success col-md-12">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">X</button>
+                    <strong>Thankyou Note Added Successfully</strong>
+                  </div>';
+
+     		  }  else {
+
+		            return $msg = '<div class="alert alert-warning col-md-12">
+		                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+		                    <strong>Failed to Add Thankyou Note</strong>
+		                  </div>';
+		              } 									
+		}
+	}
 	
 	
 
