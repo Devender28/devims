@@ -127,45 +127,76 @@
                             <div class="col-xl-12">
                                 <h3 class="mt30 mb20">Thank You Note Exchange</h3>
                             </div>
-                            <div class="col-xl-12">
+							<div class="col-xl-12">
                                 <div class="ui_kit_tab Alt">
                                     <ul class="nav nav-tabs" role="tablist">
                                         <li class="nav-item">
-                                            <a class="nav-link active" data-toggle="tab" href="#TNSend">Send</a>
+                                            <a class="nav-link active" data-toggle="tab" href="#TNSend">Submit</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" data-toggle="tab" href="#TNReceived">Received</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" data-toggle="tab" href="#TNGiven">Given</a>
-                                        </li>
                                     </ul>
                                     <div class="tab-content">
                                         <div id="TNSend" class="container tab-pane active">
+										
+									<form action="" method="post">	<?php echo @$msg;?>
                                             <div class="row">
                                                 <div class="col-xl-5 col-lg-5 col-md-5">
                                                     <div class="my_profile_setting_input ui_kit_select_search form-group">
-                                                        <select class="selectpicker" data-live-search="true" data-width="100%" id="tnvendor">
+                                                        <select class="selectpicker" data-live-search="true" data-width="100%" id="tnvendor" name="vendor">
                                                             <option>Select Vendor</option>
-                                                            <option>Country House Architects</option>
-                                                            <option>High-Rise Designers</option>
-                                                            <option>Modern House Engineers</option>
-                                                            <option>Real Estate Engineers</option>
-                                                            <option>Luxury House Real Services</option>
+															<?php foreach($vendors as $vendor) { ?>
+
+                                                            <option value="<?php echo $vendor->id;?>"><?php echo $vendor->name;?></option>
+
+															<?php } ?>
+                                                           
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-3 col-lg-3 col-md-3">
                                                     <div class="my_profile_setting_input form-group">
-                                                        <input type="text" class="form-control" id="tnamount" placeholder="Amount">
+                                                        <input type="text" class="form-control" id="tnamount" placeholder="Amount" name="amount" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-4 col-lg-4 col-md-4">
                                                     <div class="my_profile_setting_input">
-                                                        <button class="btn btn2 Small">Send</button>
+                                                        <button type="submit" name="add_thanku" class="btn btn2 Small">Send</button>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="ui_kit_table table-responsive">
+                                                        <table class="table">
+                                                            <thead class="thead-light">
+                                                                <tr>
+                                                                    <th scope="col">Date</th>
+                                                                    <th scope="col">Vendor Name</th>
+                                                                    <th scope="col">Amount</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td><span id="tngdate">01/09/20</span></td>
+                                                                    <td><span id="tngvendor">High-Rise Designers</span></td>
+                                                                    <td>Rs. <span id="tngamount">90,000</span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><span>05/09/20</span></td>
+                                                                    <td><span>Country House Architects</span></td>
+                                                                    <td>Rs. <span>60,000</span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><span>08/09/20</span></td>
+                                                                    <td><span>Modern House Designers</span></td>
+                                                                    <td>Rs. <span>40,000</span></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
                                                     </div>
                                                 </div>
                                             </div>
+											</form>
                                         </div>
                                         <div id="TNReceived" class="container tab-pane fade">
                                             <div class="ui_kit_table table-responsive">
@@ -192,36 +223,6 @@
                                                             <td><span>08/09/20</span></td>
                                                             <td><span>Modern House Designers</span></td>
                                                             <td>Rs. <span>80,000</span></td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                        <div id="TNGiven" class="container tab-pane fade">
-                                            <div class="ui_kit_table table-responsive">
-                                                <table class="table">
-                                                    <thead class="thead-light">
-                                                        <tr>
-                                                            <th scope="col">Date</th>
-                                                            <th scope="col">Vendor Name</th>
-                                                            <th scope="col">Amount</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td><span id="tngdate">01/09/20</span></td>
-                                                            <td><span id="tngvendor">High-Rise Designers</span></td>
-                                                            <td>Rs. <span id="tngamount">90,000</span></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><span>05/09/20</span></td>
-                                                            <td><span>Country House Architects</span></td>
-                                                            <td>Rs. <span>60,000</span></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><span>08/09/20</span></td>
-                                                            <td><span>Modern House Designers</span></td>
-                                                            <td>Rs. <span>40,000</span></td>
                                                         </tr>
                                                     </tbody>
                                                 </table>

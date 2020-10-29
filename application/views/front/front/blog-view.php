@@ -87,7 +87,7 @@
                         </div>
 
                         <div class="details">
-                            <p class="mb30"><?php echo $post->description;;?></p>
+                            <p class="mb30"><?php echo $post->description;?></p>
                         </div>
                         <ul class="blog_post_share">
                             <li>
