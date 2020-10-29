@@ -20,6 +20,11 @@ public function get_user($id)
   return $this->db->get_where('vendors',array('id'=>$id))->row();
 }
 
+public function get_vendor_name($id)
+{
+  return $this->db->select('name')->get_where('vendors',array('id'=>$id))->row()->name;
+}
+
 public function get_fields_data($id)
 {
 	$this->db->select('name,id');
@@ -31,6 +36,20 @@ public function get_fields_data($id)
 		return $q->result();
 	}
 	return array();
+}
+
+public function get_tnotes($id)
+{
+  return $this->db->get_where('thankyou_note',array('submit_by'=>$id))->result();
+}
+
+function indian_number_format($num) {
+    $num = "".$num;
+    if( strlen($num) < 4) return $num;
+    $tail = substr($num,-3);
+    $head = substr($num,0,-3);
+    $head = preg_replace("/\B(?=(?:\d{2})+(?!\d))/",",",$head);
+    return $head.",".$tail;
 }
 
 

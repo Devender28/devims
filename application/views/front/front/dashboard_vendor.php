@@ -176,21 +176,16 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
+															<?php foreach($tnotes as $tn) { ?>
                                                                 <tr>
-                                                                    <td><span id="tngdate">01/09/20</span></td>
-                                                                    <td><span id="tngvendor">High-Rise Designers</span></td>
-                                                                    <td>Rs. <span id="tngamount">90,000</span></td>
+                                                                    <td><span id="tngdate"><?php echo $tn->crdate;?></span></td>
+                                                                    <td><span id="tngvendor"><?php echo $this->vendormodel->get_vendor_name($tn->submit_to);?></span></td>
+                                                                    <td>Rs. <span id="tngamount">
+																	<?php 
+																	echo $this->vendormodel->indian_number_format($tn->amount);?></span></td>
                                                                 </tr>
-                                                                <tr>
-                                                                    <td><span>05/09/20</span></td>
-                                                                    <td><span>Country House Architects</span></td>
-                                                                    <td>Rs. <span>60,000</span></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><span>08/09/20</span></td>
-                                                                    <td><span>Modern House Designers</span></td>
-                                                                    <td>Rs. <span>40,000</span></td>
-                                                                </tr>
+															<?php } ?>
+                                                              
                                                             </tbody>
                                                         </table>
                                                     </div>

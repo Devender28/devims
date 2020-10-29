@@ -37,6 +37,7 @@ class Vendor extends CI_Controller {
 		$data['msg'] = $this->vendormodel->thankyounote();
 		$data['user'] = $this->vendormodel->get_user($this->session->userdata('id'));
 		$data['vendors'] = $this->vendormodel->get_fields_data($this->session->userdata('id'));
+		$data['tnotes'] = $this->vendormodel->get_tnotes($this->session->userdata('id'));
 
 		$this->load->view(FRONT_INCLUDES.'header');
 		$this->load->view(FRONT_INCLUDES.'menu'); 
